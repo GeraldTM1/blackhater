@@ -1,11 +1,70 @@
 <!DOCTYPE html>
 <html>
-<body>
+  <head>
+    <title>Blackhater</title>
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
+      }
 
-<h1>My First Heading</h1>
+      #canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
 
-<p>My first paragraph.</p>
+      #video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <video id="video" autoplay muted loop>
+      <source src="sweetea.mp4" type="video/mp4">
+      <source src="sweetea.mp3" type="audio/mp3">
+    </video>
+    <script>
+      const canvas = document.getElementById("canvas");
+      const ctx = canvas.getContext("2d");
 
-</body>
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+      gradient.addColorStop(0, "#000000");
+      gradient.addColorStop(1, "#001206");
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      window.addEventListener("resize", () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+        gradient.addColorStop(0, "#000000");
+        gradient.addColorStop(1, "#001206");
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+      });
+
+      // Remove muted attribute once user interacts with page
+      const video = document.getElementById("video");
+      const canvasContainer = document.getElementById("canvas");
+      const unmuteVideo = () => {
+        video.muted = false;
+        canvasContainer.removeEventListener("click", unmuteVideo);
+      };
+      canvasContainer.addEventListener("click", unmuteVideo);
+    </script>
+  </body>
 </html>
-
