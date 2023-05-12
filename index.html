@@ -9,6 +9,19 @@
         height: 100%;
         overflow: hidden;
       }
+      #controls {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
       #canvas {
         position: absolute;
@@ -26,6 +39,39 @@
         bottom: 0;
         margin: auto;
       }
+
+      .play-pause {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: 16.66%;
+        background-color: rgba(0, 0, 0, 0.6);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .play-pause button {
+        background-color: transparent;
+        border: none;
+        outline: none;
+        color: #fff;
+        font-size: 3rem;
+        margin: 0 1rem;
+        cursor: pointer;
+      }
+
+      .play-pause button:hover {
+        color: #5fa8d3;
+      }
+
+      .play-pause button:focus {
+        color: #5fa8d3;
+      }
+
+      .play-pause button:active {
+        transform: scale(0.95);
+      }
     </style>
   </head>
   <body>
@@ -34,6 +80,9 @@
       <source src="sweetea.mp4" type="video/mp4">
       <source src="sweetea.mp3" type="audio/mp3">
     </video>
+    <div class="play-pause">
+      <button id="play-pause-button">▶</button>
+    </div>
     <script>
       const canvas = document.getElementById("canvas");
       const ctx = canvas.getContext("2d");
@@ -65,6 +114,18 @@
         canvasContainer.removeEventListener("click", unmuteVideo);
       };
       canvasContainer.addEventListener("click", unmuteVideo);
+
+      // Play/Pause Button
+      const playPauseButton = document.getElementById("play-pause-button");
+      playPauseButton.addEventListener("click", () => {
+        if (video.paused) {
+          video.play();
+          playPauseButton.innerHTML = "❚❚";
+        } else {
+          video.pause();
+          playPauseButton.innerHTML = "▶";
+        }
+      });
     </script>
   </body>
 </html>
