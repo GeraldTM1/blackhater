@@ -63,6 +63,22 @@
   border-color: #2f2d2d;
   background-color: #2f2d2d;
 }
+.home-steam {
+  width: 511px;
+  height: 226px;
+  font-size: 50px;
+  font-style: normal;
+  transition: 0.3s;
+  font-weight: 900;
+  margin-left: var(--dl-space-space-unit);
+  border-color: #ffffff;
+  border-radius: 500px;
+}
+.home-steam:hover {
+  box-shadow: 5px 5px 10px 0px #5f5f5f;
+  border-color: #2f2d2d;
+  background-color: #2f2d2d;
+}
 .home-text3 {
   color: rgb(114, 137, 218);
 }
@@ -70,3 +86,11 @@
   color: #1ed760;
   font-size: 80px;
 }
+.home-text5 {
+  background: linear-gradient(to right, #1b2838, #2a475e);
+  -webkit-background-clip: text; /* For Safari/Chrome */
+  background-clip: text;
+  color: transparent;
+  font-size: 80px;
+}
+
