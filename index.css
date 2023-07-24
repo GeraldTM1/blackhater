@@ -15,10 +15,6 @@
   transition: 0.3s;
   margin-left: var(--dl-space-space-threeunits);
 }
-.home-image:hover {
-  opacity: 0.5;
-  transition: opacity 0.3s; /* Adding transition for a smooth effect */
-}
 .home-container1 {
   width: 100%;
   height: 876px;
