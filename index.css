@@ -94,3 +94,10 @@
   font-size: 80px;
 }
 
+/* Fallback for browsers that don't support background-clip */
+.no-background-clip .home-text5 {
+  background: none;
+  color: #1b2838; /* Use a solid color as a fallback */
+}
+
+
